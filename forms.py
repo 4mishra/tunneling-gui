@@ -1,7 +1,7 @@
 from flask_wtf import FlaskForm
 
-from wtforms import StringField, PasswordField
-from wtforms.validators import DataRequired, Length, ValidationError
+from wtforms import StringField, PasswordField, RadioField, BooleanField
+from wtforms.validators import DataRequired, Length, ValidationError, InputRequired, IPAddress
 
 class StaticIpForm(FlaskForm):
     ip_address = StringField('IP Address', validators=[InputRequired(), IPAddress()])
@@ -10,7 +10,7 @@ class StaticIpForm(FlaskForm):
 
 class PasswordForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
-    password_again = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
+    password_again = PasswordField('Password (verify)', validators=[DataRequired(), Length(8, 128)])
 
 class TunnelForm(FlaskForm):
     tunnel_type = RadioField('Tunnel Type', choices=[('normal','Normal'),('bridge','Bridge')], default='normal')

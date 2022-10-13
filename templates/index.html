@@ -2,38 +2,29 @@
 
 {% block content %}
 <h3>IP Address</h3>
-<dl>
-  <p class="ml-10">Static IP Address</p>
+<form method="post">
+  {{ form.csrf_token }}
+  <dl>
+    <p class="ml-10">Static IP Address</p>
 
+    {% for field in form %}
+      {% if field.label != "CSRF Token" %}
+        <dt>
+          {{ field.label }}
+        </dt>
+        <dd>
+          {{ field }}
+        </dd>
+        <br>
+      {% endif %}
+    {% endfor %}
+    <br><br><br>
 
-  <dt>
-    <label for="ip-address">IP Address:</label>
-  </dt>
-  <dd>
-    <input type="text">
-  </dd>
-  <br>
-  <dt>
-    <label for="subnet-mask">Subnet Mask:</label>
-  </dt>
-  <dd>
-    <input type="text">
-  </dd>
-  <br>
-  <dt>
-    <label for="gateway">Gateway:</label>
-  </dt>
-  <dd>
-    <input type="text">
-  </dd>
+    <p class="ml-10">Get IP Address from DHCP</p>
 
-  <br><br><br>
+    <dt>
+      <button class="m-10">Save</button>
+    </dt>
+  </dl></form>
 
-  <p class="ml-10">Get IP Address from DHCP</p>
-
-  <dt>
-    <button class="m-10">Save</button>
-  </dt>
-</dl>
-
-{% endblock %}
+  {% endblock %}

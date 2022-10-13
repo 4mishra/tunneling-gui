@@ -2,36 +2,43 @@
 
 {% block content %}
 <h3>Tunnel</h3>
-<dl>
+<form method="post">
+  {{ form.csrf_token }}
+  <p>Tunnel Type?</p>
+  {{ form.tunnel_type }}
 
-  <dt>
-    <label for="tunnel-type">Tunnel Type</label>
-  </dt>
-  <dd>
-    <input type="text">
-  </dd>
+  <p>Endpoint</p>
+  <p class="ml-10">Server</p>
+  <div>
+    <dl>
+      <dt>Port:</dt>
+      <dd>443 {{ form.server_port_type }}</dd>
+
+      <dt>Server Subnets:</dt>
+      <dd>
+        {{ form.server_subnet_1 }}
+      </dd>
+      <dt></dt>
+      <dd>
+        {{ form.server_subnet_2 }}
+      </dd>
+
+      <dt>Client Subnets:</dt>
+      <dd>
+        {{ form.client_subnet_1 }}
+      </dd>
+      <dt></dt>
+      <dd>
+        {{ form.client_subnet_2 }}
+      </dd>
+    </dl>
+  </div>
+  {{ form.mdns }} {{ form.mdns.label }}
   <br>
-  <dt>
-    <label for="subnet-mask">Subnet Mask:</label>
-  </dt>
-  <dd>
-    <input type="text">
-  </dd>
+  {{ form.pimd }} {{ form.pimd.label }}
   <br>
-  <dt>
-    <label for="gateway">Gateway:</label>
-  </dt>
-  <dd>
-    <input type="text">
-  </dd>
+  <button class="m-10">Save</button>
 
-  <br><br><br>
-
-  <p class="ml-10">Get IP Address from DHCP</p>
-
-  <dt>
-    <button class="m-10">Save</button>
-  </dt>
-</dl>
+</form>
 
 {% endblock %}
