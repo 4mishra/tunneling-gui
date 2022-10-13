@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>IP Address</h3>
+<dl>
+  <p class="ml-10">Static IP Address</p>
+
+
+  <dt>
+    <label for="ip-address">IP Address:</label>
+  </dt>
+  <dd>
+    <input type="text">
+  </dd>
+  <br>
+  <dt>
+    <label for="subnet-mask">Subnet Mask:</label>
+  </dt>
+  <dd>
+    <input type="text">
+  </dd>
+  <br>
+  <dt>
+    <label for="gateway">Gateway:</label>
+  </dt>
+  <dd>
+    <input type="text">
+  </dd>
+
+  <br><br><br>
+
+  <p class="ml-10">Get IP Address from DHCP</p>
+
+  <dt>
+    <button class="m-10">Save</button>
+  </dt>
+</dl>
+
+{% endblock %}

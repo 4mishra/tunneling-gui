@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Tunnel</h3>
+<dl>
+
+  <dt>
+    <label for="tunnel-type">Tunnel Type</label>
+  </dt>
+  <dd>
+    <input type="text">
+  </dd>
+  <br>
+  <dt>
+    <label for="subnet-mask">Subnet Mask:</label>
+  </dt>
+  <dd>
+    <input type="text">
+  </dd>
+  <br>
+  <dt>
+    <label for="gateway">Gateway:</label>
+  </dt>
+  <dd>
+    <input type="text">
+  </dd>
+
+  <br><br><br>
+
+  <p class="ml-10">Get IP Address from DHCP</p>
+
+  <dt>
+    <button class="m-10">Save</button>
+  </dt>
+</dl>
+
+{% endblock %}

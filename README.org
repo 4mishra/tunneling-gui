@@ -1,0 +1,9 @@
+* Tunneling Device
+Flask GUI
+
+** How to setup and run
+Make sure you're in the project directory.
+#+begin_src shell
+  pip install -r requirements.txt
+  flask run
+#+end_src
