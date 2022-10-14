@@ -1,7 +1,7 @@
 import os
 from flask import Flask, render_template, redirect, url_for, request, session
 
-from .forms import StaticIpForm, PasswordForm, TunnelForm
+from forms import StaticIpForm, PasswordForm, TunnelForm
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'really-long-string')
@@ -11,7 +11,6 @@ def index():
     """ This renders IP Address template
     """
     form = StaticIpForm(meta={'csrf': False})
-    print(form)
     return render_template('index.html', form=form)
 
 
@@ -28,3 +27,7 @@ def tunnel():
 @app.route('/diagnostics', methods=['GET', 'POST'])
 def diagnostics():
     return render_template('diagnostics.html')
+
+if __name__ == '__main__':
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
