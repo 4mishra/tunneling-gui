@@ -4,9 +4,9 @@ from wtforms import StringField, PasswordField, RadioField, BooleanField
 from wtforms.validators import DataRequired, Length, ValidationError, InputRequired, IPAddress
 
 class StaticIpForm(FlaskForm):
-    ip_address = StringField('IP Address', validators=[InputRequired(), IPAddress()], description="165.210.000.454")
-    subnet_mask= StringField('Subnet Mask', validators=[InputRequired()])
-    gateway = StringField('Gateway', validators=[InputRequired()])
+    ip_address = StringField('IP Address', validators=[InputRequired(), IPAddress()], render_kw={'placeholder': '123.45.678.9'})
+    subnet_mask= StringField('Subnet Mask', validators=[InputRequired()], render_kw={'placeholder': '255.0.0.0'})
+    gateway = StringField('Gateway', validators=[InputRequired()], render_kw={'placeholder': '192.168.2.28'})
 
 class PasswordForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
