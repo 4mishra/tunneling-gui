@@ -1,10 +1,14 @@
 import os
+import shelve
+import subprocess
 from flask import Flask, render_template, redirect, url_for, request, session
 
 from forms import StaticIpForm, PasswordForm, TunnelForm
 
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY', 'really-long-string')
+
+# db = shelve.open
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -17,6 +21,8 @@ def index():
 @app.route('/change-password', methods=['GET', 'POST'])
 def change_password():
     form = PasswordForm(meta={'csrf': False})
+    if form.is_valid():
+        # TODO 1:shelve.sync
     return render_template('change-password.html', form=form)
 
 @app.route('/tunnel', methods=['GET', 'POST'])
