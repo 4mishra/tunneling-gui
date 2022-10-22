@@ -10,4 +10,5 @@ def save_ip():
     subprocess.run(["systemctl", "restart", "netctl"])
 
 def do_change_password(new_password):
-    subprocess.run(["scripts/do_change_password.sh", new_password])
+    subprocess.run("scripts/do_change_password.sh {} {}".format(new_password, "tunnel_demo"), shell=True)
+    # subprocess.run("scripts/do_change_password.sh {} {}".format(new_password, "root"), shell=True)

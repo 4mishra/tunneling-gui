@@ -106,7 +106,7 @@ h1{
 #WHITEBACK,
   .container,
 .whiteback{
-  background-color:#fff;
+  /* background-color:#fff; */
 }
 #LIGHT,
 .light{
@@ -202,4 +202,12 @@ dl dt {
 dl dd {
     margin:2px 0; 
     padding:5px 0;
+}
+
+.content {
+  background-color: #efefea;
+}
+
+.pd-30 {
+  margin-bottom: 40px;
 }

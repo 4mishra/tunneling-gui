@@ -9,8 +9,16 @@ class StaticIpForm(FlaskForm):
     gateway = StringField('Gateway', validators=[InputRequired()], render_kw={'placeholder': '192.168.2.28'})
 
 class PasswordForm(FlaskForm):
-    password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)])
-    password_again = PasswordField('Password (verify)', validators=[DataRequired(), Length(8, 128)])
+    extra_args = {
+            'class':  'form-control',
+            'placeholder': 'Password'
+            }
+    extra_args_again = {
+            'class': 'form-control',
+            'placeholder': 'Password again'
+            }
+    password = PasswordField('Password', validators=[DataRequired(), Length(8, 128)], render_kw=extra_args)
+    password_again = PasswordField('Password (verify)', validators=[DataRequired(), Length(8, 128)], render_kw=extra_args_again)
 
 class TunnelForm(FlaskForm):
     tunnel_type = RadioField('Tunnel Type', choices=[('normal','Normal'),('bridge','Bridge')], default='normal')
