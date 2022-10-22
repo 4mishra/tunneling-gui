@@ -1,6 +1,4 @@
-{% extends 'base.html' %}
-
-{% block content %}
+{% extends 'base.html' %} {% block content %}
 <h3>Tunnel</h3>
 <form method="post">
   {{ form.csrf_token }}
@@ -15,30 +13,21 @@
       <dd>443 {{ form.server_port_type }}</dd>
 
       <dt>Server Subnets:</dt>
-      <dd>
-        {{ form.server_subnet_1 }}
-      </dd>
+      <dd>{{ form.server_subnet_1 }}</dd>
       <dt></dt>
-      <dd>
-        {{ form.server_subnet_2 }}
-      </dd>
+      <dd>{{ form.server_subnet_2 }}</dd>
 
       <dt>Client Subnets:</dt>
-      <dd>
-        {{ form.client_subnet_1 }}
-      </dd>
+      <dd>{{ form.client_subnet_1 }}</dd>
       <dt></dt>
-      <dd>
-        {{ form.client_subnet_2 }}
-      </dd>
+      <dd>{{ form.client_subnet_2 }}</dd>
     </dl>
   </div>
   {{ form.mdns }} {{ form.mdns.label }}
-  <br>
+  <br />
   {{ form.pimd }} {{ form.pimd.label }}
-  <br>
+  <br />
   <button class="m-10">Save</button>
-
 </form>
 
 {% endblock %}
