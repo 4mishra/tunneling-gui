@@ -2,15 +2,20 @@
 <h3>Tunnel</h3>
 <form method="post">
   {{ form.csrf_token }}
-  <p>Tunnel Type?</p>
+    <input type="radio" id="tunnel-type" />
+    <label for="tunnel-tye">Tunnel Type?</label>
   {{ form.tunnel_type }}
 
-  <p>Endpoint</p>
+    <input type="radio" id="endpoint" />
+    <label for="endpoint">Endpoint</label>
   <p class="ml-10">Server</p>
   <div>
     <dl>
       <dt>Port:</dt>
-      <dd>443 {{ form.server_port_type }}</dd>
+      <dd>443</dd>
+
+
+        {{ form.server_port_type }}
 
       <dt>Server Subnets:</dt>
       <dd>{{ form.server_subnet_1 }}</dd>

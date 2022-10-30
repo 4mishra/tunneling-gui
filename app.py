@@ -4,7 +4,7 @@ import subprocess
 from flask import Flask, render_template, redirect, url_for, request, session
 
 from forms import StaticIpForm, PasswordForm, TunnelForm
-from utils import do_change_password
+from utils import do_change_password, change_ip
 
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY", "really-long-string")
@@ -16,6 +16,10 @@ app.secret_key = os.getenv("SECRET_KEY", "really-long-string")
 def index():
     """This renders IP Address template"""
     form = StaticIpForm(meta={"csrf": False})
+
+    if request.method == "POST":
+        if form.validate_on_submit():
+            change_ip(ip, network, gateway, dns)
     return render_template("index.html", form=form)
 
 

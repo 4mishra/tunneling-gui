@@ -2,20 +2,28 @@
 <h3>IP Address</h3>
 <form method="post">
   {{ form.csrf_token }}
-  <dl>
-    <p class="ml-10">Static IP Address</p>
+      <input type="radio" id="static">
+      <label for="static">Static IP Address</label>
+      <br>
 
+  <dl>
     {% for field in form %} {% if field.label != "CSRF Token" %}
     <dt>{{ field.label }}</dt>
     <dd>{{ field }}</dd>
     <br />
     {% endif %} {% endfor %}
-    <br /><br /><br />
+    <br /><br />
+    </dl>
 
-    <p class="ml-10">Get IP Address from DHCP</p>
+    <input type="radio" id="dhcp" />
+    <label for="dhcp">Get IP Address from DHCP</label>
+    <br /><br />
+    <br /><br />
+
+    <dl>
 
     <dt>
-      <button class="m-10 btn btn-brimary">Save</button>
+      <button class="submit btn btn-primary">Save</button>
     </dt>
   </dl>
 </form>

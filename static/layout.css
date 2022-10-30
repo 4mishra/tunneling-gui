@@ -186,6 +186,16 @@ dl {
   margin-bottom: 50px;
 }
 
+dl.legend {
+  /* background:#5f9be3; */
+  /* color:#fff; */
+  float: left;
+  /* font-weight:bold; */
+  margin-left: 1px;
+  margin-right: 1px;
+  padding: 1px;
+}
+
 dl dt {
   /* background:#5f9be3; */
   /* color:#fff; */
